@@ -1,5 +1,6 @@
 <template>
   <div class="chips">
+    <slot name="prefix" />
     <div
       v-for="chip in chips"
       :key="chip"
