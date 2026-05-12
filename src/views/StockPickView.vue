@@ -45,7 +45,16 @@
           </div>
         </template>
         <CategoryTabs :categories="activeCategories" v-model:active="activeCat" @open-filter="filterVisible = true" />
-        <ChipFilter :chips="currentChips" v-model:active="activeChip" />
+        <ChipFilter :chips="currentChips" v-model:active="activeChip">
+          <template v-if="activeCat === 'follow' || activeCat === 'swing_follow'" #prefix>
+            <div class="follow-btn" @click="followSheetVisible = true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              一鍵跟單
+            </div>
+          </template>
+        </ChipFilter>
         <StockList
           :stocks="displayedStocks"
           :select-mode="selectMode"
@@ -100,6 +109,13 @@
     @cancel="wlSheetVisible = false"
     @confirm="onWatchlistConfirm"
   />
+  <FollowSheet
+    :visible="followSheetVisible"
+    :stocks="displayedStocks"
+    :strategy-name="activeChip"
+    @cancel="followSheetVisible = false"
+    @confirm="onFollowConfirm"
+  />
 </template>
 
 <script setup>
@@ -115,12 +131,13 @@ import IndustryDetailView from '../components/IndustryDetailView.vue'
 import SectionCard from '../components/SectionCard.vue'
 import MarketDistribution from '../components/MarketDistribution.vue'
 import MarketIndexSection from '../components/MarketIndexSection.vue'
+import FollowSheet from '../components/FollowSheet.vue'
 import { showToast } from '../composables/useToast.js'
 
 defineEmits(['selectStock'])
 
 const STORAGE_KEY = 'section_order_v1'
-const DEFAULT_ORDER = ['market', 'stockpick', 'industry', 'distribution']
+const DEFAULT_ORDER = ['stockpick', 'industry', 'market', 'distribution']
 
 const selectedIndustry = ref(null)
 const mode = ref('short')
@@ -129,6 +146,7 @@ const activeChip = ref('短多精選')
 const selectMode = ref(false)
 const filterVisible = ref(false)
 const wlSheetVisible = ref(false)
+const followSheetVisible = ref(false)
 const watchSet = ref(new Set())
 const activeFilter = ref(null)
 const editMode = ref(false)
@@ -215,6 +233,12 @@ function onWatchlistConfirm() {
   showToast(`已加入自選 (${n} 檔)`)
 }
 
+function onFollowConfirm(payload) {
+  followSheetVisible.value = false
+  const amt = payload.totalAmount.toLocaleString('en-US')
+  showToast(`已建立跟單 (${payload.selectedCodes.length} 檔，NT$ ${amt})`)
+}
+
 function toggleWatch(stock) {
   const next = new Set(watchSet.value)
   if (next.has(stock.code)) {
@@ -286,5 +310,18 @@ function toggleWatch(stock) {
 .mt.active {
   background: var(--accent); color: #1a1408; font-weight: 800;
   box-shadow: 0 0 0 2px rgba(214,162,91,0.25), 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.follow-btn {
+  height: 30px; border-radius: 5px;
+  background: #7e3ff2; color: #fff;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  font-size: 12px; font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(126,63,242,0.35);
+  transition: all .15s;
+}
+.follow-btn:active {
+  background: #6a2cd9; transform: scale(0.98);
 }
 </style>
