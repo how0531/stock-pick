@@ -1,0 +1,43 @@
+:root {
+  --bg:        #0b0d10;
+  --bg-2:      #14171c;
+  --bg-3:      #1a1e25;
+  --line:      #1f242c;
+  --text:      #ffffff;
+  --text-dim:  #8b919c;
+  --text-mute: #5a606b;
+  --up:        #ff3b30;
+  --up-soft:   #ff4d44;
+  --down:      #00c27a;
+  --accent:    #d6a25b;
+  --accent-2:  #c69248;
+  --orange:    #ff8a3d;
+  --chip:      #1d2128;
+  --chip-on:   #c69249;
+  --row:       #0f1217;
+  --tag:       #2a2f38;
+  --bottom:    #0c0e12;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Barlow", "Microsoft JhengHei", sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+svg { display: block; }
