@@ -33,3 +33,5 @@ yarn-error.log*
 # 快取
 .cache/
 .parcel-cache/
+
+.vercel
