@@ -18,14 +18,14 @@ import { indices } from '../data/stocks.js'
 .index {
   padding: 4px 16px 6px;
   display: flex; align-items: center; gap: 18px;
-  color: #fff; font-size: 14px;
+  color: #fff; font-size: calc(14px * var(--font-scale));
 }
 .item { display: flex; align-items: center; }
-.k { color: var(--text-dim); margin-right: 6px; font-size: 13px; }
+.k { color: var(--text-dim); margin-right: 6px; font-size: calc(13px * var(--font-scale)); }
 .v { font-weight: 700; letter-spacing: .3px; }
 .v.up, .d.up { color: var(--up); }
 .v.down, .d.down { color: var(--down); }
-.d { margin-left: 4px; font-size: 12px; }
+.d { margin-left: 4px; font-size: calc(12px * var(--font-scale)); }
 .tri {
   display: inline-block; width: 0; height: 0;
   border-left: 4px solid transparent; border-right: 4px solid transparent;

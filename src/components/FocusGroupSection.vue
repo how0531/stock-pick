@@ -85,7 +85,7 @@ const currentStocks = computed(() => {
 }
 .tab {
   flex: 1; text-align: center;
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale));
   padding: 16px 0 14px;
   color: var(--text-dim);
   cursor: pointer;
@@ -109,7 +109,7 @@ const currentStocks = computed(() => {
   flex: 1;
   padding: 12px 6px;
   text-align: center;
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale));
   border-radius: 6px;
   background: var(--bg-3);
   color: var(--text-dim);
@@ -138,7 +138,7 @@ const currentStocks = computed(() => {
 .status {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  font-size: 10.5px;
+  font-size: calc(10.5px * var(--font-scale));
   color: var(--text-mute);
   line-height: 1.3;
   letter-spacing: 1px;
@@ -150,14 +150,14 @@ const currentStocks = computed(() => {
 .status span { display: block; }
 
 .info .name {
-  font-size: 21px;
+  font-size: calc(21px * var(--font-scale));
   font-weight: 700;
   color: #fff;
   letter-spacing: .3px;
   line-height: 1.1;
 }
 .info .code {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale));
   color: var(--text-dim);
   margin-top: 4px;
 }
@@ -166,13 +166,13 @@ const currentStocks = computed(() => {
   text-align: right;
 }
 .price {
-  font-size: 24px;
+  font-size: calc(24px * var(--font-scale));
   font-weight: 700;
   letter-spacing: .3px;
   line-height: 1.1;
 }
 .change {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale));
   margin-top: 5px;
 }
 .tri {
@@ -192,7 +192,7 @@ const currentStocks = computed(() => {
 .qty {
   display: flex; flex-direction: column;
   gap: 4px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale));
 }
 .qty-row {
   display: flex;

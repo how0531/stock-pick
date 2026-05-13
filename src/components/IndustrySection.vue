@@ -124,7 +124,7 @@ function heatmapStyle(item) {
   display: flex; gap: 0; padding: 12px 16px 0;
 }
 .ind-tab {
-  flex: 1; text-align: center; font-size: 14px;
+  flex: 1; text-align: center; font-size: calc(14px * var(--font-scale));
   padding: 8px 0; color: var(--text-dim); cursor: pointer;
   border-bottom: 2px solid transparent; transition: all .15s;
 }
@@ -137,7 +137,7 @@ function heatmapStyle(item) {
 }
 .ind-chip {
   flex: 1; display: flex; align-items: center; justify-content: center; gap: 3px;
-  font-size: 12px; color: var(--text-dim); cursor: pointer;
+  font-size: calc(12px * var(--font-scale)); color: var(--text-dim); cursor: pointer;
   padding: 6px 0; border-radius: 8px; transition: all .15s;
 }
 .ind-chip.on {
@@ -149,10 +149,10 @@ function heatmapStyle(item) {
   padding: 6px 16px 10px;
 }
 .view-all {
-  font-size: 12px; color: var(--text-dim); cursor: pointer;
+  font-size: calc(12px * var(--font-scale)); color: var(--text-dim); cursor: pointer;
   display: inline-flex; align-items: center; gap: 2px;
 }
-.view-all .chev { font-size: 14px; line-height: 1; }
+.view-all .chev { font-size: calc(14px * var(--font-scale)); line-height: 1; }
 
 .ind-controls-left {
   display: flex; align-items: center; gap: 10px;
@@ -161,7 +161,7 @@ function heatmapStyle(item) {
   display: inline-flex; background: var(--bg-3); border-radius: 999px; padding: 2px;
 }
 .vt {
-  font-size: 11px; padding: 4px 10px; border-radius: 999px;
+  font-size: calc(11px * var(--font-scale)); padding: 4px 10px; border-radius: 999px;
   cursor: pointer; color: var(--text-dim); transition: all .15s;
 }
 .vt.active {
@@ -172,7 +172,7 @@ function heatmapStyle(item) {
   display: inline-flex; gap: 2px;
 }
 .period {
-  font-size: 11px; padding: 4px 6px; border-radius: 4px;
+  font-size: calc(11px * var(--font-scale)); padding: 4px 6px; border-radius: 4px;
   cursor: pointer; color: var(--text-dim); transition: color .15s;
 }
 .period.on { color: #fff; font-weight: 700; }
@@ -188,13 +188,13 @@ function heatmapStyle(item) {
 }
 .pct-badge {
   min-width: 64px; text-align: center;
-  font-size: 13px; font-weight: 700;
+  font-size: calc(13px * var(--font-scale)); font-weight: 700;
   padding: 3px 8px; border-radius: 4px;
 }
 .pct-badge.up { color: var(--up); background: rgba(255,59,48,0.12); }
 .pct-badge.down { color: var(--down); background: rgba(0,194,122,0.18); }
-.ind-name { flex: 1; font-size: 15px; font-weight: 600; }
-.ind-vol { color: var(--text-dim); font-size: 13px; white-space: nowrap; }
+.ind-name { flex: 1; font-size: calc(15px * var(--font-scale)); font-weight: 600; }
+.ind-vol { color: var(--text-dim); font-size: calc(13px * var(--font-scale)); white-space: nowrap; }
 
 .bar-track {
   height: 4px; background: var(--bg-3); border-radius: 2px; overflow: hidden;
@@ -215,6 +215,6 @@ function heatmapStyle(item) {
   transition: opacity .15s;
 }
 .hm-block:active { opacity: 0.7; }
-.hm-name { font-size: 13px; font-weight: 600; }
-.hm-pct { font-size: 12px; font-weight: 700; margin-top: 2px; }
+.hm-name { font-size: calc(13px * var(--font-scale)); font-weight: 600; }
+.hm-pct { font-size: calc(12px * var(--font-scale)); font-weight: 700; margin-top: 2px; }
 </style>

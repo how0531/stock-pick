@@ -193,16 +193,16 @@ function confirm() {
   display: flex; justify-content: space-between; align-items: flex-start;
   margin-bottom: 18px;
 }
-.title { font-size: 19px; font-weight: 700; }
-.subtitle { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.title { font-size: calc(19px * var(--font-scale)); font-weight: 700; }
+.subtitle { font-size: calc(12px * var(--font-scale)); color: var(--text-dim); margin-top: 4px; }
 .close {
   background: var(--bg-3); border: none; color: var(--text-dim);
-  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 14px;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: calc(14px * var(--font-scale));
 }
 
 .amount-field { margin-bottom: 14px; }
 .amount-field label {
-  display: block; font-size: 12px; color: var(--text-dim);
+  display: block; font-size: calc(12px * var(--font-scale)); color: var(--text-dim);
   margin-bottom: 6px;
 }
 .amount-input {
@@ -212,11 +212,11 @@ function confirm() {
   border: 1px solid var(--line);
 }
 .amount-input .currency {
-  color: var(--text-dim); font-size: 14px; margin-right: 8px;
+  color: var(--text-dim); font-size: calc(14px * var(--font-scale)); margin-right: 8px;
 }
 .amount-input input {
   flex: 1; background: transparent; border: none; outline: none;
-  color: var(--text); font-size: 20px; font-weight: 700;
+  color: var(--text); font-size: calc(20px * var(--font-scale)); font-weight: 700;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
 }
 .amount-presets {
@@ -225,7 +225,7 @@ function confirm() {
 .preset {
   flex: 1; text-align: center; padding: 6px 0;
   background: var(--bg-3); border: 1px solid var(--line);
-  border-radius: 6px; font-size: 12px; color: var(--text-dim);
+  border-radius: 6px; font-size: calc(12px * var(--font-scale)); color: var(--text-dim);
   cursor: pointer; transition: all .15s;
 }
 .preset.on {
@@ -238,7 +238,7 @@ function confirm() {
   margin-bottom: 14px;
 }
 .order-type label {
-  font-size: 12px; color: var(--text-dim);
+  font-size: calc(12px * var(--font-scale)); color: var(--text-dim);
 }
 .ot-tabs {
   display: inline-flex; background: var(--bg-3);
@@ -247,7 +247,7 @@ function confirm() {
 }
 .ot {
   flex: 1; text-align: center;
-  font-size: 13px; padding: 6px 14px;
+  font-size: calc(13px * var(--font-scale)); padding: 6px 14px;
   border-radius: 999px;
   cursor: pointer; color: var(--text-dim);
   font-weight: 600; transition: all .15s;
@@ -263,10 +263,10 @@ function confirm() {
   border-radius: 8px; padding: 10px 14px;
   margin-bottom: 12px;
 }
-.alloc-info { font-size: 13px; color: var(--text-dim); }
+.alloc-info { font-size: calc(13px * var(--font-scale)); color: var(--text-dim); }
 .alloc-num { color: #b48cff; font-weight: 700; margin: 0 4px; }
 .all-btn {
-  font-size: 12px; color: #b48cff; cursor: pointer;
+  font-size: calc(12px * var(--font-scale)); color: #b48cff; cursor: pointer;
   padding: 4px 10px; border: 1px solid #7e3ff2; border-radius: 999px;
 }
 
@@ -293,22 +293,22 @@ function confirm() {
 .checkbox.checked {
   background: #7e3ff2; border-color: #7e3ff2;
 }
-.name { font-size: 15px; font-weight: 700; }
-.code { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.name { font-size: calc(15px * var(--font-scale)); font-weight: 700; }
+.code { font-size: calc(11px * var(--font-scale)); color: var(--text-dim); margin-top: 2px; }
 .price-col { text-align: right; }
-.price { font-size: 14px; font-weight: 700; }
+.price { font-size: calc(14px * var(--font-scale)); font-weight: 700; }
 .price.up { color: var(--up); }
 .price.down { color: var(--down); }
-.pct { font-size: 11px; margin-top: 2px; }
+.pct { font-size: calc(11px * var(--font-scale)); margin-top: 2px; }
 .pct.up { color: var(--up); }
 .pct.down { color: var(--down); }
 .alloc-col {
   text-align: right;
-  font-size: 13px; color: var(--text-mute);
+  font-size: calc(13px * var(--font-scale)); color: var(--text-mute);
 }
 .alloc-col.active { color: #b48cff; font-weight: 700; }
 .alloc-amt { font-weight: 700; }
-.alloc-share { font-size: 10px; color: var(--text-dim); margin-top: 2px; font-weight: 400; }
+.alloc-share { font-size: calc(10px * var(--font-scale)); color: var(--text-dim); margin-top: 2px; font-weight: 400; }
 
 .actions {
   display: flex; gap: 10px;
@@ -318,7 +318,7 @@ function confirm() {
 }
 .btn {
   flex: 1; height: 48px; border: none; border-radius: 10px;
-  font-size: 16px; font-weight: 700; cursor: pointer;
+  font-size: calc(16px * var(--font-scale)); font-weight: 700; cursor: pointer;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
 }
 .cancel { background: var(--bg-3); color: var(--text); }

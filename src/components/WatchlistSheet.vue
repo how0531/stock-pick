@@ -88,13 +88,13 @@ function confirm() {
 .head {
   display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
 }
-.title { font-size: 20px; font-weight: 700; }
+.title { font-size: calc(20px * var(--font-scale)); font-weight: 700; }
 .close {
   background: var(--bg-3); border: none; color: var(--text-dim);
-  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 14px;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: calc(14px * var(--font-scale));
 }
 .stock-summary {
-  font-size: 13px; color: var(--text-dim); margin-bottom: 18px;
+  font-size: calc(13px * var(--font-scale)); color: var(--text-dim); margin-bottom: 18px;
 }
 .stock-summary .count { color: var(--accent); font-weight: 700; }
 .list { margin-bottom: 24px; }
@@ -112,11 +112,11 @@ function confirm() {
 .checkbox.checked {
   background: var(--accent); border-color: var(--accent);
 }
-.wl-name { font-size: 16px; font-weight: 500; }
+.wl-name { font-size: calc(16px * var(--font-scale)); font-weight: 500; }
 .actions { display: flex; gap: 12px; margin-top: 4px; }
 .btn {
   flex: 1; height: 48px; border: none; border-radius: 10px;
-  font-size: 17px; font-weight: 700; cursor: pointer;
+  font-size: calc(17px * var(--font-scale)); font-weight: 700; cursor: pointer;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
 }
 .cancel { background: var(--bg-3); color: var(--text); }

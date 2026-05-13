@@ -27,7 +27,7 @@ defineEmits(['update:active'])
 .chip {
   height: 30px; border-radius: 5px; background: var(--chip);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 12px; font-weight: 500;
+  color: var(--accent); font-size: calc(12px * var(--font-scale)); font-weight: 500;
   letter-spacing: .2px; cursor: pointer; white-space: nowrap;
 }
 .chip.on { background: var(--chip-on); color: #1a1408; font-weight: 700; }

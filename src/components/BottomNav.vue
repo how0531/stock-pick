@@ -65,7 +65,7 @@ const items = bottomNavItems
 }
 .ni {
   display: flex; flex-direction: column; align-items: center;
-  gap: 4px; color: var(--text-dim); font-size: 12px; cursor: pointer;
+  gap: 4px; color: var(--text-dim); font-size: calc(12px * var(--font-scale)); cursor: pointer;
 }
 .ni.on { color: var(--up); }
 .ic { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; }
@@ -75,5 +75,5 @@ const items = bottomNavItems
   transform: translateY(-14px);
   box-shadow: 0 6px 18px rgba(255, 59, 48, .35);
 }
-.center-lbl { margin-top: -8px; color: var(--text-dim); font-size: 12px; }
+.center-lbl { margin-top: -8px; color: var(--text-dim); font-size: calc(12px * var(--font-scale)); }
 </style>

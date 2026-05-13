@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 17px;
+  font-size: calc(17px * var(--font-scale));
   font-weight: 600;
   color: #fff;
 }
@@ -28,7 +28,7 @@
 .lock::before {
   content: ""; position: absolute; inset: 3px 4px; background: var(--bg); border-radius: 1px;
 }
-.right { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+.right { display: flex; align-items: center; gap: 6px; font-size: calc(15px * var(--font-scale)); }
 .signal { display: flex; align-items: flex-end; gap: 2px; height: 11px; }
 .signal i { display: block; width: 3px; background: #fff; border-radius: 1px; }
 .signal i:nth-child(1) { height: 4px; }
@@ -46,6 +46,6 @@
 .battery i { display: block; height: 100%; width: 78%; background: #fff; border-radius: 1px; }
 .battery span {
   position: absolute; inset: 0; display: flex; align-items: center;
-  justify-content: center; font-size: 9px; color: #000; font-weight: 700;
+  justify-content: center; font-size: calc(9px * var(--font-scale)); color: #000; font-weight: 700;
 }
 </style>

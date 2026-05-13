@@ -38,11 +38,11 @@ defineEmits(['click', 'toggleWatch'])
 }
 .row:active { background: var(--bg-2); }
 
-.n { font-size: 16px; font-weight: 700; letter-spacing: .3px; }
-.c { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
-.price { text-align: right; font-size: 16px; font-weight: 700; letter-spacing: .3px; }
-.pct { text-align: right; font-size: 13px; font-weight: 600; }
-.vol { text-align: right; color: #fff; font-size: 13px; }
+.n { font-size: calc(16px * var(--font-scale)); font-weight: 700; letter-spacing: .3px; }
+.c { font-size: calc(11px * var(--font-scale)); color: var(--text-dim); margin-top: 2px; }
+.price { text-align: right; font-size: calc(16px * var(--font-scale)); font-weight: 700; letter-spacing: .3px; }
+.pct { text-align: right; font-size: calc(13px * var(--font-scale)); font-weight: 600; }
+.vol { text-align: right; color: #fff; font-size: calc(13px * var(--font-scale)); }
 .up { color: var(--up); }
 .down { color: var(--down); }
 .tri {

@@ -31,7 +31,7 @@ const { current } = useToast()
   color: var(--text);
   padding: 10px 18px;
   border-radius: 999px;
-  font-size: 14px; font-weight: 600;
+  font-size: calc(14px * var(--font-scale)); font-weight: 600;
   box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   z-index: 200;
   display: flex; align-items: center; gap: 8px;

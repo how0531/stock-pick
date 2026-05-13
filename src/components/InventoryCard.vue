@@ -61,7 +61,7 @@ import { inventory } from '../data/stocks.js'
   color: var(--text);
 }
 .title {
-  font-size: 15px; font-weight: 600; color: #fff;
+  font-size: calc(15px * var(--font-scale)); font-weight: 600; color: #fff;
 }
 .eye {
   color: var(--text-dim); display: inline-flex; cursor: pointer;
@@ -70,7 +70,7 @@ import { inventory } from '../data/stocks.js'
   display: inline-flex; align-items: center; gap: 4px;
   background: rgba(70, 140, 220, 0.18);
   color: #6ab3ff;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale));
   padding: 3px 8px;
   border-radius: 4px;
   font-weight: 500;
@@ -83,13 +83,13 @@ import { inventory } from '../data/stocks.js'
   margin: 14px 0 16px;
 }
 .big {
-  font-size: 32px; font-weight: 700;
+  font-size: calc(32px * var(--font-scale)); font-weight: 700;
   letter-spacing: 4px;
   color: #fff;
   font-family: "Barlow", monospace;
 }
 .sub {
-  font-size: 18px; color: var(--text);
+  font-size: calc(18px * var(--font-scale)); color: var(--text);
   letter-spacing: 2px;
 }
 
@@ -126,14 +126,14 @@ import { inventory } from '../data/stocks.js'
 }
 
 .lbl {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale));
   color: var(--text-dim);
   line-height: 1.35;
   white-space: pre-line;
   align-self: flex-start;
 }
 .val {
-  font-size: 16px;
+  font-size: calc(16px * var(--font-scale));
   color: #fff;
   font-weight: 600;
   display: inline-flex; align-items: baseline; gap: 2px;
@@ -143,6 +143,6 @@ import { inventory } from '../data/stocks.js'
   letter-spacing: 1px;
 }
 .unit {
-  font-size: 12px; color: var(--text-dim); font-weight: 400;
+  font-size: calc(12px * var(--font-scale)); color: var(--text-dim); font-weight: 400;
 }
 </style>

@@ -44,23 +44,23 @@ const collapsed = ref(false)
   border-radius: 3px;
   background: transparent;
   color: var(--text-dim);
-  font-size: 14px; line-height: 1;
+  font-size: calc(14px * var(--font-scale)); line-height: 1;
   cursor: pointer;
   padding: 0;
   display: flex; align-items: center; justify-content: center;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
 }
 .title {
-  font-size: 16px; font-weight: 700; color: var(--text);
+  font-size: calc(16px * var(--font-scale)); font-weight: 700; color: var(--text);
 }
 .info {
   color: var(--text-dim);
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale));
   margin-left: 4px;
 }
 .spacer { flex: 1; }
 .chevron {
   color: var(--text-dim);
-  font-size: 22px; line-height: 1;
+  font-size: calc(22px * var(--font-scale)); line-height: 1;
 }
 </style>

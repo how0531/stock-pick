@@ -256,7 +256,7 @@ function toggleWatch(stock) {
   padding: 8px 16px 0;
 }
 .edit-toggle {
-  font-size: 13px; color: var(--text-dim);
+  font-size: calc(13px * var(--font-scale)); color: var(--text-dim);
   padding: 4px 10px; border-radius: 999px;
   border: 1px solid var(--line);
   cursor: pointer; transition: all .15s;
@@ -273,7 +273,7 @@ function toggleWatch(stock) {
   width: 32px; height: 28px;
   background: var(--bg-3); color: var(--text);
   border: 1px solid var(--line); border-radius: 6px;
-  font-size: 14px; cursor: pointer;
+  font-size: calc(14px * var(--font-scale)); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
 }
@@ -289,7 +289,7 @@ function toggleWatch(stock) {
   transform: translateX(-50%);
   background: var(--accent); color: #1a1408;
   border: none; border-radius: 24px;
-  padding: 12px 28px; font-size: 16px; font-weight: 700;
+  padding: 12px 28px; font-size: calc(16px * var(--font-scale)); font-weight: 700;
   cursor: pointer; z-index: 50;
   box-shadow: 0 4px 16px rgba(0,0,0,.4);
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
@@ -303,7 +303,7 @@ function toggleWatch(stock) {
   border-radius: 999px; padding: 3px;
 }
 .mt {
-  font-size: 14px; padding: 6px 18px; border-radius: 999px;
+  font-size: calc(14px * var(--font-scale)); padding: 6px 18px; border-radius: 999px;
   cursor: pointer; color: var(--text); font-weight: 600;
   transition: all .15s; letter-spacing: 0.5px;
 }
@@ -316,7 +316,7 @@ function toggleWatch(stock) {
   height: 30px; border-radius: 5px;
   background: #7e3ff2; color: #fff;
   display: flex; align-items: center; justify-content: center; gap: 4px;
-  font-size: 12px; font-weight: 700;
+  font-size: calc(12px * var(--font-scale)); font-weight: 700;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(126,63,242,0.35);
   transition: all .15s;
