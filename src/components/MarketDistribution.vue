@@ -85,7 +85,7 @@ function ratio(n) { return (n / total.value) * 100 }
   display: flex; padding: 12px 16px 8px;
 }
 .md-tab {
-  flex: 1; text-align: center; font-size: 14px;
+  flex: 1; text-align: center; font-size: calc(14px * var(--font-scale));
   padding: 6px 0; color: var(--text-dim); cursor: pointer;
   border-bottom: 2px solid transparent; transition: all .15s;
 }
@@ -105,12 +105,12 @@ function ratio(n) { return (n / total.value) * 100 }
   display: flex; flex-direction: column; align-items: center;
 }
 .md-stat-num {
-  font-size: 24px; font-weight: 700; line-height: 1;
+  font-size: calc(24px * var(--font-scale)); font-weight: 700; line-height: 1;
 }
 .md-stat-num.up { color: var(--up); }
 .md-stat-num.down { color: var(--down); }
 .md-stat-label {
-  font-size: 13px; color: var(--text-dim); margin-top: 6px;
+  font-size: calc(13px * var(--font-scale)); color: var(--text-dim); margin-top: 6px;
 }
 
 .md-chart {
@@ -127,7 +127,7 @@ function ratio(n) { return (n / total.value) * 100 }
   align-items: center; justify-content: flex-end;
 }
 .md-count {
-  font-size: 11px; color: var(--text-dim); margin-bottom: 2px;
+  font-size: calc(11px * var(--font-scale)); color: var(--text-dim); margin-bottom: 2px;
   line-height: 1;
 }
 .md-bar {
@@ -145,7 +145,7 @@ function ratio(n) { return (n / total.value) * 100 }
   padding-top: 6px;
 }
 .md-label {
-  font-size: 10px; color: var(--text-dim); text-align: center;
+  font-size: calc(10px * var(--font-scale)); color: var(--text-dim); text-align: center;
 }
 
 .md-progress {
@@ -160,7 +160,7 @@ function ratio(n) { return (n / total.value) * 100 }
 
 .md-totals {
   display: flex; justify-content: space-between;
-  padding: 4px 16px 8px; font-size: 13px;
+  padding: 4px 16px 8px; font-size: calc(13px * var(--font-scale));
 }
 .md-total-label { color: var(--text-dim); margin-right: 6px; }
 .md-total-num { font-weight: 700; }

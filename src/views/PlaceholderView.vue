@@ -22,14 +22,14 @@ defineEmits(['back'])
 }
 .back {
   background: none; border: none; color: #fff;
-  font-size: 30px; cursor: pointer; line-height: 1; padding: 0;
+  font-size: calc(30px * var(--font-scale)); cursor: pointer; line-height: 1; padding: 0;
 }
-.ttitle { font-size: 18px; font-weight: 600; }
+.ttitle { font-size: calc(18px * var(--font-scale)); font-weight: 600; }
 .placeholder {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; min-height: 60vh;
   color: var(--text-dim); gap: 16px;
 }
-.icon { font-size: 48px; }
-.label { font-size: 18px; }
+.icon { font-size: calc(48px * var(--font-scale)); }
+.label { font-size: calc(18px * var(--font-scale)); }
 </style>

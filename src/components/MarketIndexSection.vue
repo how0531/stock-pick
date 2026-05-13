@@ -309,7 +309,7 @@ const retailGridY = [0, 45, 90, 135, 180]
   display: flex; gap: 0; padding: 8px 16px 0;
 }
 .mkt-tab {
-  flex: 1; text-align: center; font-size: 14px;
+  flex: 1; text-align: center; font-size: calc(14px * var(--font-scale));
   padding: 8px 0; color: var(--text-dim); cursor: pointer;
   border-bottom: 2px solid transparent; transition: all .15s;
 }
@@ -326,19 +326,19 @@ const retailGridY = [0, 45, 90, 135, 180]
 }
 .col { display: flex; flex-direction: column; }
 .col.right { align-items: flex-end; }
-.title { font-size: 12px; color: var(--text-dim); margin-bottom: 2px; }
+.title { font-size: calc(12px * var(--font-scale)); color: var(--text-dim); margin-bottom: 2px; }
 .big {
-  font-size: 28px;
+  font-size: calc(28px * var(--font-scale));
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
 .big.up { color: var(--up); }
 .big.down { color: var(--down); }
-.chg { font-size: 11px; margin-top: 2px; display: flex; align-items: center; gap: 3px; }
+.chg { font-size: calc(11px * var(--font-scale)); margin-top: 2px; display: flex; align-items: center; gap: 3px; }
 .chg.up { color: var(--up); }
 .chg.down { color: var(--down); }
-.mid { gap: 2px; font-size: 10px; }
+.mid { gap: 2px; font-size: calc(10px * var(--font-scale)); }
 .stat { display: flex; justify-content: space-between; gap: 6px; }
 .stat .lab { color: var(--text-dim); }
 .stat .up { color: var(--up); }
@@ -362,7 +362,7 @@ const retailGridY = [0, 45, 90, 135, 180]
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: calc(9px * var(--font-scale));
   color: var(--text-dim);
   padding: 4px 4px 28px 0;
   text-align: right;
@@ -377,7 +377,7 @@ const retailGridY = [0, 45, 90, 135, 180]
   justify-content: center;
   gap: 8px;
   padding-left: 6px;
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale));
   color: var(--text-dim);
 }
 .leg { display: flex; align-items: center; gap: 4px; }
@@ -387,7 +387,7 @@ const retailGridY = [0, 45, 90, 135, 180]
 .x-axis {
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: calc(10px * var(--font-scale));
   color: var(--text-dim);
   padding: 2px 50px 0 36px;
 }
@@ -403,11 +403,11 @@ const retailGridY = [0, 45, 90, 135, 180]
   border-radius: 4px;
   padding: 6px 8px;
 }
-.sub-name { font-size: 11px; color: var(--text-dim); }
-.sub-val { font-size: 16px; font-weight: 700; margin-top: 2px; }
+.sub-name { font-size: calc(11px * var(--font-scale)); color: var(--text-dim); }
+.sub-val { font-size: calc(16px * var(--font-scale)); font-weight: 700; margin-top: 2px; }
 .sub-val.up { color: var(--up); }
 .sub-val.down { color: var(--down); }
-.sub-chg { font-size: 10px; margin-top: 2px; display: flex; align-items: center; gap: 3px; }
+.sub-chg { font-size: calc(10px * var(--font-scale)); margin-top: 2px; display: flex; align-items: center; gap: 3px; }
 .sub-chg.up { color: var(--up); }
 .sub-chg.down { color: var(--down); }
 
@@ -419,23 +419,23 @@ const retailGridY = [0, 45, 90, 135, 180]
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 10px;
 }
-.ah-title { font-size: 14px; font-weight: 700; }
+.ah-title { font-size: calc(14px * var(--font-scale)); font-weight: 700; }
 .ah-title.up { color: var(--up); }
 .ah-pill {
-  font-size: 11px; color: var(--up);
+  font-size: calc(11px * var(--font-scale)); color: var(--up);
   background: rgba(255,59,48,0.15);
   padding: 3px 8px; border-radius: 999px;
 }
-.ah-big { font-size: 20px; font-weight: 700; }
+.ah-big { font-size: calc(20px * var(--font-scale)); font-weight: 700; }
 .ah-big.up { color: var(--up); }
 
 .ah-table {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale));
 }
 .ah-th {
-  color: var(--text-dim); font-size: 11px;
+  color: var(--text-dim); font-size: calc(11px * var(--font-scale));
   padding: 6px 4px; border-bottom: 1px solid var(--line);
 }
 .ah-td {
@@ -446,7 +446,7 @@ const retailGridY = [0, 45, 90, 135, 180]
 .ah-td.down { color: var(--down); font-weight: 700; }
 
 .tag {
-  font-size: 11px; padding: 2px 6px; border-radius: 4px;
+  font-size: calc(11px * var(--font-scale)); padding: 2px 6px; border-radius: 4px;
   font-weight: 600;
 }
 .tag-red { color: var(--up); background: rgba(255,59,48,0.15); }
@@ -454,7 +454,7 @@ const retailGridY = [0, 45, 90, 135, 180]
 
 .role-tag {
   display: inline-block;
-  font-size: 11px; font-weight: 700;
+  font-size: calc(11px * var(--font-scale)); font-weight: 700;
   padding: 2px 7px; border-radius: 4px;
   letter-spacing: 0.3px;
   margin-right: 4px;
@@ -472,7 +472,7 @@ const retailGridY = [0, 45, 90, 135, 180]
   display: flex; gap: 8px; margin-bottom: 8px;
 }
 .stat-pill {
-  font-size: 11px; padding: 4px 10px; border-radius: 999px;
+  font-size: calc(11px * var(--font-scale)); padding: 4px 10px; border-radius: 999px;
   font-weight: 600;
 }
 .stat-pill.up-bg { color: var(--up); background: rgba(255,59,48,0.15); }
@@ -485,7 +485,7 @@ const retailGridY = [0, 45, 90, 135, 180]
 }
 .rr-yl, .rr-yr {
   display: flex; flex-direction: column; justify-content: space-between;
-  font-size: 9px; color: var(--text-dim);
+  font-size: calc(9px * var(--font-scale)); color: var(--text-dim);
   padding: 0 4px;
   text-align: right;
 }
@@ -493,7 +493,7 @@ const retailGridY = [0, 45, 90, 135, 180]
 .rr-svg { width: 100%; height: 120px; }
 .rr-xaxis {
   display: flex; justify-content: space-between;
-  font-size: 10px; color: var(--text-dim);
+  font-size: calc(10px * var(--font-scale)); color: var(--text-dim);
   padding: 4px 40px 0 40px;
 }
 
@@ -508,12 +508,12 @@ const retailGridY = [0, 45, 90, 135, 180]
   padding: 8px 0;
   border-bottom: 1px solid var(--line);
 }
-.mt-label { font-size: 12px; color: var(--text-dim); }
-.mt-val { font-size: 15px; font-weight: 700; }
+.mt-label { font-size: calc(12px * var(--font-scale)); color: var(--text-dim); }
+.mt-val { font-size: calc(15px * var(--font-scale)); font-weight: 700; }
 .mt-val.up { color: var(--up); }
 .mt-val.down { color: var(--down); }
 .mt-sub {
-  font-size: 11px; color: var(--text-dim);
+  font-size: calc(11px * var(--font-scale)); color: var(--text-dim);
   padding: 4px 0 6px;
   border-bottom: 1px solid var(--line);
 }

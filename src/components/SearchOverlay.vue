@@ -62,23 +62,23 @@ watch(() => props.visible, async (v) => {
 }
 input {
   flex: 1; background: none; border: none; outline: none;
-  color: #fff; font-size: 17px;
+  color: #fff; font-size: calc(17px * var(--font-scale));
   font-family: inherit;
 }
 input::placeholder { color: var(--text-dim); }
-.cancel { background: none; border: none; color: var(--orange); font-size: 16px; cursor: pointer; white-space: nowrap; }
+.cancel { background: none; border: none; color: var(--orange); font-size: calc(16px * var(--font-scale)); cursor: pointer; white-space: nowrap; }
 .results { margin-top: 8px; }
 .result-row {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 20px; border-bottom: 1px solid var(--line); cursor: pointer;
 }
 .result-row:active { background: var(--bg-2); }
-.rn { font-size: 17px; font-weight: 600; }
-.rc { font-size: 13px; color: var(--text-dim); margin-top: 3px; }
-.rp { font-size: 18px; font-weight: 700; }
+.rn { font-size: calc(17px * var(--font-scale)); font-weight: 600; }
+.rc { font-size: calc(13px * var(--font-scale)); color: var(--text-dim); margin-top: 3px; }
+.rp { font-size: calc(18px * var(--font-scale)); font-weight: 700; }
 .up { color: var(--up); }
 .down { color: var(--down); }
-.empty { padding: 40px 20px; text-align: center; color: var(--text-dim); font-size: 16px; }
+.empty { padding: 40px 20px; text-align: center; color: var(--text-dim); font-size: calc(16px * var(--font-scale)); }
 
 .fade-enter-active, .fade-leave-active { transition: opacity .2s; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }

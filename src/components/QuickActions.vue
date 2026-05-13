@@ -45,5 +45,5 @@ const actions = quickActions
 }
 .qitem:active { background: var(--bg-2); }
 .ic { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
-.lbl { font-size: 14.5px; }
+.lbl { font-size: calc(14.5px * var(--font-scale)); }
 </style>

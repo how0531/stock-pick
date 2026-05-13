@@ -83,7 +83,7 @@ const displayedStocks = computed(() => {
 .col-head {
   padding: 8px 16px 6px;
   display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr;
-  align-items: center; color: var(--text-dim); font-size: 12px;
+  align-items: center; color: var(--text-dim); font-size: calc(12px * var(--font-scale));
   background: var(--bg-3);
   border-bottom: 1px solid var(--line);
 }
@@ -91,7 +91,7 @@ const displayedStocks = computed(() => {
   display: flex; align-items: center; gap: 8px;
 }
 .edit-pill {
-  font-size: 11px; line-height: 1;
+  font-size: calc(11px * var(--font-scale)); line-height: 1;
   padding: 4px 9px; border-radius: 999px;
   border: 1px solid var(--text-dim);
   color: var(--text-dim);
@@ -112,7 +112,7 @@ const displayedStocks = computed(() => {
   display: inline-block;
   margin-left: 4px;
   opacity: 0.4;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale));
 }
 .sort-ind.active {
   opacity: 1;

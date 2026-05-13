@@ -34,7 +34,7 @@ defineEmits(['update:active', 'openFilter'])
 }
 .tabs { display: flex; gap: 24px; flex: 1; }
 .tab {
-  font-size: 14px; color: var(--text-dim); padding: 6px 0 8px;
+  font-size: calc(14px * var(--font-scale)); color: var(--text-dim); padding: 6px 0 8px;
   position: relative; cursor: pointer; font-weight: 500;
 }
 .tab.on { color: #fff; font-weight: 700; }

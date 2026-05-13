@@ -112,7 +112,7 @@ import { shortcuts } from '../data/stocks.js'
   display: flex; align-items: center; justify-content: center;
 }
 .lbl {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale));
   color: #d8dbe0;
   letter-spacing: .5px;
 }

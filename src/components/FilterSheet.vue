@@ -101,17 +101,17 @@ function applyFilter() {
 .head {
   display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
 }
-.title { font-size: 20px; font-weight: 700; }
+.title { font-size: calc(20px * var(--font-scale)); font-weight: 700; }
 .close {
   background: var(--bg-3); border: none; color: var(--text-dim);
-  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 14px;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: calc(14px * var(--font-scale));
 }
 .field { margin-bottom: 20px; }
-label { display: block; font-size: 14px; color: var(--text-dim); margin-bottom: 8px; }
+label { display: block; font-size: calc(14px * var(--font-scale)); color: var(--text-dim); margin-bottom: 8px; }
 .range { display: flex; align-items: center; gap: 10px; }
 .range input {
   flex: 1; height: 44px; background: var(--bg-3); border: 1px solid var(--line);
-  border-radius: 8px; color: #fff; font-size: 16px; padding: 0 12px;
+  border-radius: 8px; color: #fff; font-size: calc(16px * var(--font-scale)); padding: 0 12px;
   font-family: "Barlow", "Microsoft JhengHei", sans-serif;
   outline: none;
 }
@@ -120,7 +120,7 @@ label { display: block; font-size: 14px; color: var(--text-dim); margin-bottom: 
 .actions { display: flex; gap: 12px; margin-top: 28px; }
 .btn {
   flex: 1; height: 48px; border: none; border-radius: 10px;
-  font-size: 17px; font-weight: 700; cursor: pointer;
+  font-size: calc(17px * var(--font-scale)); font-weight: 700; cursor: pointer;
 }
 .reset { background: var(--bg-3); color: var(--text); }
 .apply { background: var(--accent); color: #1a1408; }

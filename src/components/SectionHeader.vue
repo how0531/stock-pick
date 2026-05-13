@@ -29,7 +29,7 @@ defineEmits(['toggle'])
   cursor: pointer;
   user-select: none;
 }
-.l { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; }
+.l { display: flex; align-items: center; gap: 10px; font-size: calc(17px * var(--font-scale)); font-weight: 600; }
 .minus {
   width: 18px; height: 18px; border: 1.5px solid #fff; border-radius: 3px;
   display: inline-flex; align-items: center; justify-content: center; position: relative;
@@ -38,5 +38,5 @@ defineEmits(['toggle'])
   position: absolute; width: 10px; height: 1.6px; background: #fff; display: block;
 }
 .bar.v { transform: rotate(90deg); }
-.chev { color: var(--text-dim); font-size: 18px; }
+.chev { color: var(--text-dim); font-size: calc(18px * var(--font-scale)); }
 </style>

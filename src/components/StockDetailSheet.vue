@@ -118,16 +118,16 @@ const rangePct = computed(() => {
 .head {
   display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;
 }
-.sname { font-size: 22px; font-weight: 700; }
-.scode { font-size: 14px; color: var(--text-dim); margin-top: 4px; }
+.sname { font-size: calc(22px * var(--font-scale)); font-weight: 700; }
+.scode { font-size: calc(14px * var(--font-scale)); color: var(--text-dim); margin-top: 4px; }
 .close {
   background: var(--bg-3); border: none; color: var(--text-dim);
-  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 14px;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: calc(14px * var(--font-scale));
 }
 .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
 .range-bar { margin-bottom: 18px; }
 .range-labels { display: flex; justify-content: space-between; margin-bottom: 6px; }
-.range-lbl { font-size: 12px; color: var(--text-dim); }
+.range-lbl { font-size: calc(12px * var(--font-scale)); color: var(--text-dim); }
 .range-track {
   position: relative; height: 6px; background: var(--bg-3);
   border-radius: 3px; overflow: visible;
@@ -141,8 +141,8 @@ const rangePct = computed(() => {
   position: absolute; top: 50%; width: 10px; height: 10px;
   border-radius: 50%; background: #fff; transform: translate(-50%, -50%);
 }
-.big-price { font-size: 32px; font-weight: 700; }
-.big-change { font-size: 16px; }
+.big-price { font-size: calc(32px * var(--font-scale)); font-weight: 700; }
+.big-change { font-size: calc(16px * var(--font-scale)); }
 .up { color: var(--up); }
 .down { color: var(--down); }
 .stats {
@@ -150,12 +150,12 @@ const rangePct = computed(() => {
 }
 .stats-2 { margin-bottom: 28px; }
 .stat { background: var(--bg-3); border-radius: 8px; padding: 12px 8px; text-align: center; }
-.sl { font-size: 12px; color: var(--text-dim); margin-bottom: 6px; }
-.sv { font-size: 15px; font-weight: 600; }
+.sl { font-size: calc(12px * var(--font-scale)); color: var(--text-dim); margin-bottom: 6px; }
+.sv { font-size: calc(15px * var(--font-scale)); font-weight: 600; }
 .actions { display: flex; gap: 10px; }
 .btn {
   flex: 1; height: 48px; border: none; border-radius: 10px;
-  font-size: 17px; font-weight: 700; cursor: pointer;
+  font-size: calc(17px * var(--font-scale)); font-weight: 700; cursor: pointer;
 }
 .buy  { background: var(--up); color: #fff; }
 .sell { background: var(--down); color: #fff; }
