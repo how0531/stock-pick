@@ -40,8 +40,8 @@ const { fontScale, MIN, MAX, STEP, reset } = useFontScale()
 }
 .panel {
   position: absolute;
-  top: 54px;
-  right: 16px;
+  top: 96px;
+  right: 14px;
   z-index: 51;
   width: 220px;
   background: var(--bg-2);
