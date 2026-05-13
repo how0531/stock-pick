@@ -1,3 +1,11 @@
+<!--
+  FilterSheet — 進階篩選 Sheet
+  ==============================
+  用途：依價格、成交量、漲跌幅等條件篩選股票清單。
+  使用位置：StockPickView、IndustryDetailView。
+  Props：visible
+  事件：close、apply（傳出 filter 物件 { priceMin, priceMax, volMin, volMax, pctMin, pctMax }）
+-->
 <template>
   <Teleport to="body">
     <Transition name="sheet">

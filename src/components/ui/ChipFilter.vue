@@ -1,3 +1,10 @@
+<!--
+  ChipFilter — chip 篩選按鈕列
+  ==============================
+  用途：橫向捲動的 chip 列（短多精選 / 成值排行 / 量能排行…），單選。
+  Props：chips、active（v-model）
+  Slots：prefix（左側額外按鈕，例如「一鍵跟單」）
+-->
 <template>
   <div class="chips">
     <slot name="prefix" />

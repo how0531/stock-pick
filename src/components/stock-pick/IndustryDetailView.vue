@@ -1,3 +1,11 @@
+<!--
+  IndustryDetailView — 產業詳細頁
+  =================================
+  用途：點某產業後切換到此頁，顯示該產業內的所有個股清單（含篩選、加入自選功能）。
+  使用位置：StockPickView（v-if="selectedIndustry"）。
+  Props：industry
+  事件：back（回到產業列表）、select-stock（開啟 StockDetailSheet）
+-->
 <template>
   <div class="detail">
     <div class="detail-header">
@@ -81,10 +89,10 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { getIndustryStocks } from '../data/stocks.js'
-import FilterSheet from './FilterSheet.vue'
-import WatchlistSheet from './WatchlistSheet.vue'
-import { showToast } from '../composables/useToast.js'
+import { getIndustryStocks } from '../../data/stocks.js'
+import FilterSheet from '../sheets/FilterSheet.vue'
+import WatchlistSheet from '../sheets/WatchlistSheet.vue'
+import { showToast } from '../../composables/useToast.js'
 
 const props = defineProps({
   industry: { type: Object, required: true },

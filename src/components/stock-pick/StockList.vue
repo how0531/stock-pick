@@ -1,3 +1,11 @@
+<!--
+  StockList — 股票清單容器
+  ==========================
+  用途：渲染欄位標頭 +「+自選」勾選模式按鈕 + 多個 StockRow。
+  使用位置：StockPickView、IndustryDetailView。
+  Props：stocks、selectMode、watchSet
+  事件：select、toggle-select-mode、toggle-watch
+-->
 <template>
   <div class="col-head">
     <div class="col-name">

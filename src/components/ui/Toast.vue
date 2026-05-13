@@ -1,3 +1,10 @@
+<!--
+  Toast — 全域訊息提示
+  ======================
+  用途：訂閱 useToast 的 current ref，在畫面底部跳出短暫提示（淡入淡出）。
+  使用位置：App.vue（全頁掛載一次）。
+  觸發方式：在任何元件呼叫 showToast('訊息')。
+-->
 <template>
   <Teleport to="body">
     <Transition name="toast">
@@ -17,7 +24,7 @@
 </template>
 
 <script setup>
-import { useToast } from '../composables/useToast.js'
+import { useToast } from '../../composables/useToast.js'
 const { current } = useToast()
 </script>
 

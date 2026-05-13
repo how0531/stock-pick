@@ -1,3 +1,11 @@
+<!--
+  SectionCard — 通用區塊卡片
+  ============================
+  用途：「選股」頁面內每個大區塊（大盤資訊 / 選股清單 / 產業清單 / 漲跌分佈）的外殼，
+        提供統一的標題列與摺疊容器。
+  Props：title、info（顯示 i icon）、chevron（右側箭頭）
+  Slots：default（內容）、header-right（標題右側自訂內容，例如編輯模式的 ↑↓ 按鈕）
+-->
 <template>
   <div class="section">
     <div class="section-head">

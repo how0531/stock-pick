@@ -1,3 +1,12 @@
+<!--
+  BottomNav — 底部導覽列
+  ========================
+  用途：固定在畫面底部的 5 個分頁（總覽 / 選股 / 下單匣 / 自選 / 帳務）。
+  使用位置：App.vue。
+  資料：bottomNavItems（來自 data/stocks.js）。
+  輸入 (props/v-model)：active（目前選中的頁面 key）。
+  事件 (emits)：update:active（切換頁面時觸發）。
+-->
 <template>
   <div class="nav">
     <div
@@ -43,7 +52,7 @@
 </template>
 
 <script setup>
-import { bottomNavItems } from '../data/stocks.js'
+import { bottomNavItems } from '../../data/stocks.js'
 
 defineProps({
   active: { type: String, default: 'stock-pick' },

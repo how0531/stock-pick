@@ -1,3 +1,11 @@
+<!--
+  SettingsSheet — 設定底部 Sheet
+  ================================
+  用途：全域設定面板，整合「字級大小」滑桿與「編輯排序」入口。
+  使用位置：App.vue（從右上齒輪按鈕開啟）。
+  Props：visible
+  事件：close、edit-order（點「編輯排序」時，App.vue 接到後切到選股頁並進入編輯模式）
+-->
 <template>
   <Teleport to="body">
     <Transition name="sheet">
@@ -47,8 +55,8 @@
 </template>
 
 <script setup>
-import { useFontScale } from '../composables/useFontScale.js'
-import { useEditMode } from '../composables/useEditMode.js'
+import { useFontScale } from '../../composables/useFontScale.js'
+import { useEditMode } from '../../composables/useEditMode.js'
 
 defineProps({ visible: { type: Boolean, default: false } })
 const emit = defineEmits(['close', 'edit-order'])

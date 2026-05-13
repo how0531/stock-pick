@@ -1,3 +1,22 @@
+/**
+ * useEditMode — 選股清單區塊排序的編輯模式
+ * ==========================================
+ * 用途：管理「選股」頁面內各 SectionCard（大盤資訊、選股清單、產業清單、漲跌分佈）的顯示順序，
+ *       並控制是否進入「編輯模式」（出現 ↑↓ 箭頭可調整順序）。
+ *
+ * 設計：模組層級 singleton，App.vue（從設定 sheet）與 StockPickView 共用同一份狀態。
+ *
+ * 對外 API：
+ *   - editMode      ref<boolean>   是否處於編輯模式
+ *   - sectionOrder  ref<string[]>  目前的排序，會持久化到 localStorage
+ *   - enterEdit()   進入編輯模式
+ *   - exitEdit()    離開編輯模式並儲存順序、跳出 toast
+ *   - toggleEdit()  視當前狀態切換 enter / exit
+ *   - moveUp(idx)   把第 idx 個區塊往上移
+ *   - moveDown(idx) 把第 idx 個區塊往下移
+ *
+ * localStorage key：'section_order_v1'
+ */
 import { ref } from 'vue'
 import { showToast } from './useToast.js'
 

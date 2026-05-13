@@ -1,3 +1,11 @@
+<!--
+  StockRow — 單一股票列
+  ========================
+  用途：清單中的一檔股票（股名 + 代號 + 成交價 + 漲跌幅 + 成交量 + 可選的勾選方塊）。
+  使用位置：StockList。
+  Props：stock、selectMode、selected
+  事件：click、toggle
+-->
 <template>
   <div class="row" @click="$emit('click', stock)">
     <div class="name">

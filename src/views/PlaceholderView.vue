@@ -1,3 +1,10 @@
+<!--
+  PlaceholderView — 未實作頁面的佔位畫面
+  ========================================
+  用途：底部導覽列點到「下單匣 / 自選 / 帳務」時顯示的暫定畫面（含返回按鈕）。
+  Props：title
+  事件：back（按返回時觸發，由 App.vue 切回選股頁）
+-->
 <template>
   <div class="top-bar">
     <button class="back" @click="$emit('back')">‹</button>

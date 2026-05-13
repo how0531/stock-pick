@@ -1,3 +1,15 @@
+/*
+ * variables.css — 全域樣式與設計 token
+ * =====================================
+ * 集中管理：
+ *   - 顏色變數（背景、文字、漲跌色、強調色…）
+ *   - 字型 (Barlow + Microsoft JhengHei)
+ *   - 全站 reset (* { margin/padding 0 })
+ *   - --font-scale：由 useFontScale composable 控制，所有元件的 font-size 都用
+ *     calc(Xpx * var(--font-scale)) 計算
+ *
+ * 在 main.js 全域載入，整個 app 共用。
+ */
 :root {
   --bg:        #0b0d10;
   --bg-2:      #14171c;

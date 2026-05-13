@@ -1,3 +1,10 @@
+<!--
+  MarketDistribution — 個股漲跌分佈
+  ===================================
+  用途：選股頁的「個股漲跌分佈」區塊，用條狀圖呈現各漲跌幅級距的家數。
+  使用位置：StockPickView 內的 SectionCard。
+  資料：marketDistribution（來自 data/stocks.js）。
+-->
 <template>
   <div class="md-tabs">
     <div
@@ -61,7 +68,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { marketDistribution } from '../data/stocks.js'
+import { marketDistribution } from '../../data/stocks.js'
 
 const tabs = [
   { key: 'listed', label: '上市' },

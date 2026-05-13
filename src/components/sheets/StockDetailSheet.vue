@@ -1,3 +1,11 @@
+<!--
+  StockDetailSheet — 個股詳細資料 Sheet
+  ======================================
+  用途：點選任一檔股票時跳出，顯示該股完整資訊（價格、漲跌、成交、技術指標…）。
+  使用位置：App.vue（全頁掛載），由各頁面 emit('select-stock') 設定 selectedStock 觸發。
+  Props：stock（傳 null 即關閉）
+  事件：close
+-->
 <template>
   <Teleport to="body">
     <Transition name="sheet">

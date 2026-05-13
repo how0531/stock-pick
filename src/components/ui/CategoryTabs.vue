@@ -1,3 +1,11 @@
+<!--
+  CategoryTabs — 分類分頁列
+  ===========================
+  用途：選股頁面的分類切換（盤中熱門 / 籌碼排行 / 策略選股 / 跟單策略），右側有篩選漏斗。
+  使用位置：StockPickView。
+  Props：categories（陣列）、active（v-model）
+  事件：update:active、open-filter
+-->
 <template>
   <div class="cat-bar">
     <div class="tabs">

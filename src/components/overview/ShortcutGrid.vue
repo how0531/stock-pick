@@ -1,3 +1,9 @@
+<!--
+  ShortcutGrid — 快捷功能格
+  ===========================
+  用途：總覽頁面的快捷功能小圖示格（盤後資訊、新聞、籌碼、技術…）。純展示。
+  資料：shortcuts（來自 data/stocks.js）。
+-->
 <template>
   <div class="wrap">
     <div class="grid">
@@ -89,7 +95,7 @@
 </template>
 
 <script setup>
-import { shortcuts } from '../data/stocks.js'
+import { shortcuts } from '../../data/stocks.js'
 </script>
 
 <style scoped>
