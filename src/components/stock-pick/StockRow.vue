@@ -7,14 +7,13 @@
   事件：click、toggle
 -->
 <template>
-  <div class="row" @click="$emit('click', stock)">
+  <div class="row" :class="{ selected: selectMode && isWatched }" @click="onRowClick">
     <div class="name">
       <div class="n">
         <span
           v-if="selectMode"
           class="add-mark"
           :class="{ added: isWatched }"
-          @click.stop="$emit('toggleWatch', stock)"
         >{{ isWatched ? '✓' : '+' }}</span>{{ stock.name }}
       </div>
       <div class="c">{{ stock.code }}</div>
@@ -28,12 +27,23 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   stock: { type: Object, required: true },
   selectMode: { type: Boolean, default: false },
   isWatched: { type: Boolean, default: false },
 })
-defineEmits(['click', 'toggleWatch'])
+const emit = defineEmits(['click', 'toggleWatch'])
+
+// 重點：點整列的兩種行為依 selectMode 切換
+//   - 一般模式：開啟個股詳細
+//   - 勾選模式：切換是否選中（不開啟詳細，避免誤跳轉）
+function onRowClick() {
+  if (props.selectMode) {
+    emit('toggleWatch', props.stock)
+  } else {
+    emit('click', props.stock)
+  }
+}
 </script>
 
 <style scoped>
@@ -45,6 +55,8 @@ defineEmits(['click', 'toggleWatch'])
   cursor: pointer; transition: background .15s;
 }
 .row:active { background: var(--bg-2); }
+/* 勾選模式被選中時的整列高亮，與 add-mark 的 ✓ 一起提供雙重視覺回饋 */
+.row.selected { background: rgba(214, 162, 91, 0.12); }
 
 .n { font-size: calc(16px * var(--font-scale)); font-weight: 700; letter-spacing: .3px; }
 .c { font-size: calc(11px * var(--font-scale)); color: var(--text-dim); margin-top: 2px; }
