@@ -147,37 +147,45 @@ import { useEditMode } from '../composables/useEditMode.js'
 
 defineEmits(['selectStock'])
 
+// 編輯模式 + 區塊順序：來自 singleton composable，App.vue 也能切換
 const { editMode, sectionOrder, exitEdit, moveUp, moveDown } = useEditMode()
 
-const selectedIndustry = ref(null)
-const mode = ref('short')
-const activeCat = ref('hot')
-const activeChip = ref('短多精選')
-const selectMode = ref(false)
+const selectedIndustry = ref(null)   // 非 null 時切到 IndustryDetailView
+const mode = ref('short')             // 'short'（短線）或 'swing'（波段）
+const activeCat = ref('hot')          // 目前選中的 CategoryTabs key
+const activeChip = ref('短多精選')    // 目前選中的 ChipFilter
+const selectMode = ref(false)         // 「+ 自選」勾選模式開關
 const filterVisible = ref(false)
 const wlSheetVisible = ref(false)
 const followSheetVisible = ref(false)
-const watchSet = ref(new Set())
-const activeFilter = ref(null)
+const watchSet = ref(new Set())       // 勾選模式下被勾選的股票代號集合
+const activeFilter = ref(null)        // FilterSheet apply 後的篩選條件物件
 
+// 短線 / 波段對應到不同的分類資料
 const activeCategories = computed(() => mode.value === 'short' ? shortCategories : swingCategories)
 
+// 由當前分類取出 chips 陣列；optional chaining 避免分類找不到時崩潰
 const currentChips = computed(() => {
   const cat = activeCategories.value.find(c => c.key === activeCat.value)
   return cat?.chips ?? []
 })
 
+// 切換短線/波段時，分類與 chip 都重置成新模式的第一筆
+// （否則會殘留舊模式的 key，導致 currentChips 找不到對應分類而變空）
 watch(mode, () => {
   activeCat.value = activeCategories.value[0]?.key ?? ''
   activeChip.value = activeCategories.value[0]?.chips?.[0] ?? ''
 })
 
+// 切換分類時，chip 重置為該分類的第一筆，並關閉勾選模式（避免跨分類誤勾）
 watch(activeCat, () => {
   const chips = currentChips.value
   activeChip.value = chips[0] ?? ''
   selectMode.value = false
 })
 
+// 顯示用清單：原始資料 + 套用 FilterSheet 條件
+// 重點：mock 資料把 price 用千分號字串表示（如 "1,234"），所以要先 replace 再 parseFloat
 const displayedStocks = computed(() => {
   let list = getStocks(activeCat.value, activeChip.value)
   const f = activeFilter.value
@@ -186,6 +194,7 @@ const displayedStocks = computed(() => {
     const price = parseFloat(s.price.replace(/,/g, ''))
     const vol = parseFloat(s.volume)
     const pct = parseFloat(s.changePct)
+    // 任一條件不符即排除；null 代表使用者沒設這個條件
     if (f.priceMin != null && price < f.priceMin) return false
     if (f.priceMax != null && price > f.priceMax) return false
     if (f.volMin != null && vol < f.volMin) return false
@@ -206,7 +215,7 @@ function onWatchlistConfirm() {
   const n = watchSet.value.size
   wlSheetVisible.value = false
   selectMode.value = false
-  watchSet.value = new Set()
+  watchSet.value = new Set() // 清空：避免下次進勾選模式時殘留上次的選擇
   showToast(`已加入自選 (${n} 檔)`)
 }
 
@@ -216,6 +225,7 @@ function onFollowConfirm(payload) {
   showToast(`已建立跟單 (${payload.selectedCodes.length} 檔，NT$ ${amt})`)
 }
 
+// 重點：建立新 Set 再賦值，Vue 才能偵測到 ref 變更（直接 add/delete 不會觸發 reactivity）
 function toggleWatch(stock) {
   const next = new Set(watchSet.value)
   if (next.has(stock.code)) {

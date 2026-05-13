@@ -20,19 +20,22 @@
 import { ref } from 'vue'
 import { showToast } from './useToast.js'
 
+// localStorage 存放鍵；改版時把版號 +1 可作廢舊資料避免格式不相容
 const STORAGE_KEY = 'section_order_v1'
 const DEFAULT_ORDER = ['stockpick', 'industry', 'market', 'distribution']
 
 function readInitialOrder() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    // 驗證長度避免使用者塞入錯誤資料 / 舊版欄位數不一致時崩潰
     if (Array.isArray(saved) && saved.length === DEFAULT_ORDER.length) {
       return saved
     }
-  } catch {}
+  } catch {} // 隱私模式 / 容量爆掉時 localStorage 會丟例外，靜默忽略
   return [...DEFAULT_ORDER]
 }
 
+// 重點：模組載入時就建立 ref（singleton），所有 useEditMode() 拿到的是同一份
 const editMode = ref(false)
 const sectionOrder = ref(readInitialOrder())
 
@@ -49,6 +52,7 @@ function enterEdit() {
 function exitEdit() {
   if (!editMode.value) return
   editMode.value = false
+  // 設計選擇：只在「離開編輯」時才寫入 + 跳 toast，避免拖曳排序過程中狂寫 localStorage
   persistOrder()
   showToast('已儲存排序')
 }
@@ -60,6 +64,7 @@ function toggleEdit() {
 
 function moveUp(idx) {
   if (idx <= 0) return
+  // 重點：建立新陣列再賦值，Vue 才能偵測到 ref 變更（直接 mutate 也能 work，但這樣比較清楚）
   const arr = [...sectionOrder.value]
   ;[arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]]
   sectionOrder.value = arr

@@ -11,6 +11,8 @@
 <template>
   <div class="phone">
     <StatusBar />
+
+    <!-- 頁面切換：用 v-if/v-else-if 而非 vue-router，demo 等級不需要路由 -->
     <StockPickView
       v-if="activePage === 'stock-pick'"
       @select-stock="selectedStock = $event"
@@ -19,9 +21,12 @@
       v-else-if="activePage === 'overview'"
       @select-stock="selectedStock = $event"
     />
+    <!-- 下單匣 / 自選 / 帳務尚未實作，統一用 PlaceholderView -->
     <PlaceholderView v-else :title="pageTitle" @back="activePage = 'stock-pick'" />
+
     <BottomNav v-model:active="activePage" />
 
+    <!-- 右上設定齒輪：固定浮動，所有頁面都看得到 -->
     <button
       class="settings-fab"
       :class="{ on: settingsVisible }"
@@ -41,6 +46,7 @@
     />
   </div>
 
+  <!-- 全域個股詳細 sheet：放在 .phone 外，避免被 padding-bottom: 96px 截斷 -->
   <StockDetailSheet :stock="selectedStock" @close="selectedStock = null" />
   <Toast />
 </template>
@@ -57,9 +63,13 @@ import OverviewView from './views/OverviewView.vue'
 import PlaceholderView from './views/PlaceholderView.vue'
 import { useEditMode } from './composables/useEditMode.js'
 
+// 目前顯示的頁面 key；改值即切換頁面
 const activePage = ref('stock-pick')
+// 點到的個股；非 null 時 StockDetailSheet 會自動展開
 const selectedStock = ref(null)
 const settingsVisible = ref(false)
+
+// 從 composable 取出進入編輯模式的函式（singleton，與 StockPickView 共用同一份狀態）
 const { enterEdit } = useEditMode()
 
 const pageTitles = {
@@ -69,6 +79,10 @@ const pageTitles = {
 }
 const pageTitle = computed(() => pageTitles[activePage.value] ?? '')
 
+// 設定面板按「編輯排序」時的流程：
+//   1. 切回選股頁（編輯排序只對該頁有意義）
+//   2. 進入編輯模式（畫面上各 SectionCard 出現 ↑↓ 箭頭）
+//   3. 關閉設定 sheet 讓使用者直接操作
 function onEditOrder() {
   activePage.value = 'stock-pick'
   enterEdit()
