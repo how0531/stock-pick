@@ -189,12 +189,17 @@ function applyFilter(filter) {
   showToast(`已套用篩選，找到 ${count} 檔`)
 }
 
-function onWatchlistConfirm() {
+function onWatchlistConfirm(payload) {
   const n = watchSet.value.size
+  const newCount = Array.isArray(payload) ? 0 : (payload?.newNames?.length ?? 0)
   wlSheetVisible.value = false
   selectMode.value = false
   watchSet.value = new Set()
-  showToast(`已加入自選 (${n} 檔)`)
+  showToast(
+    newCount > 0
+      ? `已加入自選 (${n} 檔，新增 ${newCount} 個清單)`
+      : `已加入自選 (${n} 檔)`
+  )
 }
 
 const indexValue = computed(() => {
