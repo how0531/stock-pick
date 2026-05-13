@@ -211,12 +211,18 @@ function applyFilter(filter) {
   showToast(`已套用篩選，找到 ${count} 檔`)
 }
 
-function onWatchlistConfirm() {
+function onWatchlistConfirm(payload) {
   const n = watchSet.value.size
+  // 兼容舊格式（陣列）與新格式（{ existingIds, newNames }），方便未來再演進
+  const newCount = Array.isArray(payload) ? 0 : (payload?.newNames?.length ?? 0)
   wlSheetVisible.value = false
   selectMode.value = false
   watchSet.value = new Set() // 清空：避免下次進勾選模式時殘留上次的選擇
-  showToast(`已加入自選 (${n} 檔)`)
+  showToast(
+    newCount > 0
+      ? `已加入自選 (${n} 檔，新增 ${newCount} 個清單)`
+      : `已加入自選 (${n} 檔)`
+  )
 }
 
 function onFollowConfirm(payload) {
