@@ -6,12 +6,8 @@
     @select-stock="$emit('selectStock', $event)"
   ></IndustryDetailView>
   <div v-else>
-    <div class="page-head">
-      <span
-        class="edit-toggle"
-        :class="{ on: editMode }"
-        @click="toggleEditMode"
-      >{{ editMode ? '完成' : '編輯排序' }}</span>
+    <div v-if="editMode" class="page-head">
+      <span class="edit-toggle on" @click="exitEdit">完成</span>
     </div>
 
     <template v-for="(key, idx) in sectionOrder" :key="key">
@@ -119,7 +115,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { shortCategories, swingCategories, getStocks } from '../data/stocks.js'
 import CategoryTabs from '../components/CategoryTabs.vue'
 import ChipFilter from '../components/ChipFilter.vue'
@@ -133,11 +129,11 @@ import MarketDistribution from '../components/MarketDistribution.vue'
 import MarketIndexSection from '../components/MarketIndexSection.vue'
 import FollowSheet from '../components/FollowSheet.vue'
 import { showToast } from '../composables/useToast.js'
+import { useEditMode } from '../composables/useEditMode.js'
 
 defineEmits(['selectStock'])
 
-const STORAGE_KEY = 'section_order_v1'
-const DEFAULT_ORDER = ['stockpick', 'industry', 'market', 'distribution']
+const { editMode, sectionOrder, exitEdit, moveUp, moveDown } = useEditMode()
 
 const selectedIndustry = ref(null)
 const mode = ref('short')
@@ -149,39 +145,6 @@ const wlSheetVisible = ref(false)
 const followSheetVisible = ref(false)
 const watchSet = ref(new Set())
 const activeFilter = ref(null)
-const editMode = ref(false)
-const sectionOrder = ref([...DEFAULT_ORDER])
-
-onMounted(() => {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY))
-    if (Array.isArray(saved) && saved.length === DEFAULT_ORDER.length) {
-      sectionOrder.value = saved
-    }
-  } catch {}
-})
-
-function toggleEditMode() {
-  editMode.value = !editMode.value
-  if (!editMode.value) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sectionOrder.value))
-    showToast('已儲存排序')
-  }
-}
-
-function moveUp(idx) {
-  if (idx === 0) return
-  const arr = [...sectionOrder.value]
-  ;[arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]]
-  sectionOrder.value = arr
-}
-
-function moveDown(idx) {
-  if (idx === sectionOrder.value.length - 1) return
-  const arr = [...sectionOrder.value]
-  ;[arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]]
-  sectionOrder.value = arr
-}
 
 const activeCategories = computed(() => mode.value === 'short' ? shortCategories : swingCategories)
 
