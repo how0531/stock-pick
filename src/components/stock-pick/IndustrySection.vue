@@ -1,3 +1,11 @@
+<!--
+  IndustrySection — 產業清單
+  =============================
+  用途：選股頁的「產業清單」區塊，依漲跌、營收等排序顯示各產業表現。
+  使用位置：StockPickView。
+  資料：industryCategories、industrySortChips、getIndustries()
+  事件：select-industry（點某產業時往上傳，由 StockPickView 切換到 IndustryDetailView）
+-->
 <template>
   <div class="ind-tabs">
     <div
@@ -70,7 +78,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import { industryCategories, industrySortChips, getIndustries } from '../data/stocks.js'
+import { industryCategories, industrySortChips, getIndustries } from '../../data/stocks.js'
 
 const emit = defineEmits(['selectIndustry'])
 

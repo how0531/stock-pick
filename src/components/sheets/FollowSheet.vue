@@ -1,3 +1,11 @@
+<!--
+  FollowSheet — 一鍵跟單 Sheet
+  ==============================
+  用途：跟著指定策略一鍵下單，可選股票與設定金額。
+  使用位置：StockPickView（從 ChipFilter 的「一鍵跟單」按鈕開啟）。
+  Props：visible、stocks、strategyName
+  事件：cancel、confirm（傳出 { selectedCodes, totalAmount }）
+-->
 <template>
   <Teleport to="body">
     <Transition name="sheet">

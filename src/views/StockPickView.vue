@@ -1,3 +1,17 @@
+<!--
+  StockPickView — 選股頁（主畫面）
+  =================================
+  職責：
+    1. 顯示四個可排序區塊（大盤資訊 / 選股清單 / 產業清單 / 個股漲跌分佈），順序由
+       useEditMode().sectionOrder 控制
+    2. 短線 / 波段模式切換、CategoryTabs、ChipFilter、StockList
+    3. 編輯模式中顯示「完成」按鈕讓使用者退出
+    4. 串接 FilterSheet（進階篩選）、WatchlistSheet（加入自選）、FollowSheet（一鍵跟單）
+    5. 點某產業時切到 IndustryDetailView
+
+  狀態管理：editMode 與 sectionOrder 來自 useEditMode（singleton），所以 App.vue 的設定面板
+  也能控制；其他 UI 狀態（mode、activeCat、watchSet 等）保留在本頁。
+-->
 <template>
   <IndustryDetailView
     v-if="selectedIndustry"
@@ -117,17 +131,17 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { shortCategories, swingCategories, getStocks } from '../data/stocks.js'
-import CategoryTabs from '../components/CategoryTabs.vue'
-import ChipFilter from '../components/ChipFilter.vue'
-import StockList from '../components/StockList.vue'
-import FilterSheet from '../components/FilterSheet.vue'
-import WatchlistSheet from '../components/WatchlistSheet.vue'
-import IndustrySection from '../components/IndustrySection.vue'
-import IndustryDetailView from '../components/IndustryDetailView.vue'
-import SectionCard from '../components/SectionCard.vue'
-import MarketDistribution from '../components/MarketDistribution.vue'
-import MarketIndexSection from '../components/MarketIndexSection.vue'
-import FollowSheet from '../components/FollowSheet.vue'
+import CategoryTabs from '../components/ui/CategoryTabs.vue'
+import ChipFilter from '../components/ui/ChipFilter.vue'
+import SectionCard from '../components/ui/SectionCard.vue'
+import StockList from '../components/stock-pick/StockList.vue'
+import IndustrySection from '../components/stock-pick/IndustrySection.vue'
+import IndustryDetailView from '../components/stock-pick/IndustryDetailView.vue'
+import MarketDistribution from '../components/stock-pick/MarketDistribution.vue'
+import MarketIndexSection from '../components/stock-pick/MarketIndexSection.vue'
+import FilterSheet from '../components/sheets/FilterSheet.vue'
+import WatchlistSheet from '../components/sheets/WatchlistSheet.vue'
+import FollowSheet from '../components/sheets/FollowSheet.vue'
 import { showToast } from '../composables/useToast.js'
 import { useEditMode } from '../composables/useEditMode.js'
 

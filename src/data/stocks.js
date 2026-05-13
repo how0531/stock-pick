@@ -1,8 +1,23 @@
-export const indices = [
-  { name: '加權指', value: '41898.32', change: '108.26', up: true },
-  { name: '櫃買指', value: '425.71', change: '3.70', up: true },
-]
-
+/**
+ * stocks.js — 全域 mock 資料來源
+ * ================================
+ * 用途：集中所有靜態 demo 資料（分類、股票清單、產業、庫存、底部導覽…）。
+ *       這是純前端 demo，沒有 API；所有畫面顯示的數字都來自這個檔。
+ *
+ * 主要 export：
+ *   - shortCategories / swingCategories   選股頁的「短線 / 波段」模式分類
+ *   - getStocks(catKey, chip)              依分類 + chip 取得股票清單
+ *   - industryCategories / industrySortChips / getIndustries() / getIndustryStocks()
+ *                                          產業清單 + 個別產業股票
+ *   - marketDistribution                   個股漲跌分佈圖資料
+ *   - bottomNavItems                       底部導覽列項目
+ *   - inventory                            總覽頁的庫存卡資料
+ *   - shortcuts                            總覽頁的快捷功能格
+ *   - focusTabs / focusGroups              總覽頁的「關注族群」資料
+ *
+ * 修改注意：因為是 demo 資料，可以直接改數值來看畫面效果；如果要改成真實 API，
+ *           只需把 export const → 換成 fetch / axios 包裝的函式即可。
+ */
 export const shortCategories = [
   {
     key: 'hot',

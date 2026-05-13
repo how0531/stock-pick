@@ -1,3 +1,9 @@
+<!--
+  StatusBar — 頂部假狀態列
+  =========================
+  用途：模擬 iPhone 狀態列（時間、訊號、5G、電量）。純展示，沒有互動。
+  使用位置：App.vue（每頁顯示）。
+-->
 <template>
   <div class="status">
     <div class="time">19:18 <span class="lock"></span></div>

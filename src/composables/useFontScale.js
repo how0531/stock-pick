@@ -1,3 +1,20 @@
+/**
+ * useFontScale — 全域字級倍率
+ * =============================
+ * 用途：控制全站文字的縮放倍率（不影響版面、icon、SVG）。
+ *
+ * 機制：把倍率寫到 :root 的 CSS 變數 --font-scale，所有元件的 font-size 用
+ *       calc(Xpx * var(--font-scale)) 計算。修改值即可即時生效。
+ *
+ * 設計：模組層級 singleton。讀寫都走同一個 ref，模組載入時先讀 localStorage。
+ *
+ * 對外 API：
+ *   - fontScale  ref<number>   目前倍率，可雙向綁定到 <input type="range">
+ *   - MIN, MAX, STEP, DEFAULT  滑桿用的範圍常數
+ *   - reset()    回到預設 1.0×
+ *
+ * localStorage key：'font-scale'
+ */
 import { ref, watch } from 'vue'
 
 const STORAGE_KEY = 'font-scale'

@@ -1,3 +1,10 @@
+<!--
+  FocusGroupSection — 關注族群
+  ==============================
+  用途：總覽頁面下方的「關注族群」區塊（電子、傳產、金融…），切換 tab 顯示不同族群的代表股。
+  資料：focusTabs、focusGroups（來自 data/stocks.js）。
+  事件：select-stock（點股票時往上傳，最終由 App.vue 開啟 StockDetailSheet）
+-->
 <template>
   <div class="focus">
     <div class="tabs">
@@ -55,7 +62,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import { focusTabs, focusGroups } from '../data/stocks.js'
+import { focusTabs, focusGroups } from '../../data/stocks.js'
 
 defineEmits(['selectStock'])
 

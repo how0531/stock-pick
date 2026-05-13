@@ -1,3 +1,10 @@
+<!--
+  InventoryCard — 帳戶總覽卡
+  ============================
+  用途：顯示模擬庫存資訊（總市值、損益、報酬率、持股檔數）。
+  使用位置：OverviewView。
+  資料：inventory（來自 data/stocks.js）。
+-->
 <template>
   <div class="card">
     <div class="head">
@@ -48,7 +55,7 @@
 </template>
 
 <script setup>
-import { inventory } from '../data/stocks.js'
+import { inventory } from '../../data/stocks.js'
 </script>
 
 <style scoped>

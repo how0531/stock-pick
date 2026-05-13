@@ -1,3 +1,13 @@
+<!--
+  App.vue — 應用程式根元件
+  ==========================
+  職責：
+    1. 渲染整個「手機」容器（.phone，max-width 420px 模擬手機畫面）
+    2. 用 activePage 切換主畫面（StockPickView / OverviewView / PlaceholderView）
+    3. 掛載全域 UI：StatusBar（頂部假狀態列）、BottomNav（底部導覽）、
+       SettingsSheet（設定）、StockDetailSheet（個股詳細）、Toast（提示訊息）
+    4. 處理「設定 → 編輯排序」流程：自動跳到選股頁 + 進入編輯模式
+-->
 <template>
   <div class="phone">
     <StatusBar />
@@ -37,11 +47,11 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import StatusBar from './components/StatusBar.vue'
-import BottomNav from './components/BottomNav.vue'
-import StockDetailSheet from './components/StockDetailSheet.vue'
-import Toast from './components/Toast.vue'
-import SettingsSheet from './components/SettingsSheet.vue'
+import StatusBar from './components/layout/StatusBar.vue'
+import BottomNav from './components/layout/BottomNav.vue'
+import StockDetailSheet from './components/sheets/StockDetailSheet.vue'
+import Toast from './components/ui/Toast.vue'
+import SettingsSheet from './components/sheets/SettingsSheet.vue'
 import StockPickView from './views/StockPickView.vue'
 import OverviewView from './views/OverviewView.vue'
 import PlaceholderView from './views/PlaceholderView.vue'

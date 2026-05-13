@@ -1,3 +1,10 @@
+<!--
+  MarketIndexSection — 大盤資訊
+  ===============================
+  用途：選股頁的「大盤資訊」區塊（加權指 / 櫃買指走勢、5 檔即時量、買賣超）。
+  使用位置：StockPickView 內的 SectionCard。
+  注意：含原生 SVG 圖表，那些 SVG 內的 font-size 屬性刻意不套字級倍率。
+-->
 <template>
   <div class="mkt">
     <div class="mkt-tabs">

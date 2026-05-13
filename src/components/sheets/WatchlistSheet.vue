@@ -1,3 +1,11 @@
+<!--
+  WatchlistSheet — 加入自選清單 Sheet
+  ====================================
+  用途：批次把已勾選的股票加進自選清單；可同時加入多個自選分類。
+  使用位置：StockPickView、IndustryDetailView。
+  Props：visible、stockCount、watchlists
+  事件：cancel、confirm（傳出選中的 watchlist id 陣列）
+-->
 <template>
   <Teleport to="body">
     <Transition name="sheet">

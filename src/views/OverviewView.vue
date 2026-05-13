@@ -1,3 +1,9 @@
+<!--
+  OverviewView — 總覽頁
+  =======================
+  職責：純展示頁，由三個區塊組成：庫存卡 → 快捷功能格 → 關注族群。
+  事件：select-stock（往上傳給 App.vue 開啟 StockDetailSheet）。
+-->
 <template>
   <div class="overview">
     <InventoryCard />
@@ -9,9 +15,9 @@
 </template>
 
 <script setup>
-import InventoryCard from '../components/InventoryCard.vue'
-import ShortcutGrid from '../components/ShortcutGrid.vue'
-import FocusGroupSection from '../components/FocusGroupSection.vue'
+import InventoryCard from '../components/overview/InventoryCard.vue'
+import ShortcutGrid from '../components/overview/ShortcutGrid.vue'
+import FocusGroupSection from '../components/overview/FocusGroupSection.vue'
 
 defineEmits(['selectStock'])
 </script>
