@@ -59,11 +59,17 @@ import { useFontScale } from '../../composables/useFontScale.js'
 import { useEditMode } from '../../composables/useEditMode.js'
 
 defineProps({ visible: { type: Boolean, default: false } })
+// emit 兩種事件：close（普通關閉）、edit-order（要切到選股頁進入編輯模式，由 App.vue 處理）
 const emit = defineEmits(['close', 'edit-order'])
 
+// 字級狀態：v-model.number 雙向綁到 fontScale，滑桿動 → 全站字級立刻變
 const { fontScale, MIN, MAX, STEP, reset: resetFont } = useFontScale()
+// 編輯模式狀態：與 StockPickView 共用 singleton
 const { editMode, toggleEdit } = useEditMode()
 
+// 「編輯排序 / 結束編輯」按鈕的兩種行為：
+//   - 已在編輯模式 → 直接結束（toggleEdit 內會儲存順序），並關閉 sheet
+//   - 還沒進入 → emit('edit-order') 讓 App.vue 處理（要先切到選股頁，因為編輯排序只對該頁有意義）
 function onToggleEdit() {
   if (editMode.value) {
     toggleEdit()

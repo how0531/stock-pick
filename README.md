@@ -1,5 +1,9 @@
 # stock-pick
 
+> 🤖 **本專案由 Claude AI（Anthropic）協作產出**
+> 從原始 Vue 3 demo 出發，所有功能（字級調整、設定整合、目錄重整、繁中註解、本份 README）皆由 Claude 在使用者引導下完成。
+> 詳見 commit history 與各 PR 描述，每個 commit 都對應一次與 Claude 的對話迭代。
+
 模擬手機版股票 App 的 Vue 3 + Vite 前端 demo，內含選股、總覽、產業、跟單、設定等畫面。
 
 > 純前端展示用途，所有資料來自 `src/data/stocks.js` 的靜態 mock data，沒有後端 API。

@@ -23,6 +23,7 @@ export const MAX = 1.5
 export const STEP = 0.05
 export const DEFAULT = 1
 
+// 重點：把倍率限制在 [MIN, MAX]，避免使用者改 localStorage / DevTools 灌入怪值
 function clamp(v) {
   if (Number.isNaN(v)) return DEFAULT
   return Math.min(MAX, Math.max(MIN, v))
@@ -38,24 +39,28 @@ function readInitial() {
   }
 }
 
+// singleton ref，模組第一次被 import 就建立並讀回上次倍率
 const fontScale = ref(readInitial())
 
+// 重點：把倍率寫進 :root 的 CSS 變數，所有元件的 font-size: calc(Xpx * var(--font-scale)) 立即生效
 function applyToDom(v) {
   if (typeof document !== 'undefined') {
     document.documentElement.style.setProperty('--font-scale', String(v))
   }
 }
 
+// 模組載入時先套用一次，避免首屏使用預設 1.0× 後才跳到使用者偏好
 applyToDom(fontScale.value)
 
+// 之後每次倍率變動：clamp → 同步 DOM → 寫 localStorage
 watch(fontScale, (v) => {
   const safe = clamp(v)
-  if (safe !== v) fontScale.value = safe
+  if (safe !== v) fontScale.value = safe // 反向修正：滑桿外掛超出範圍時拉回合法值
   applyToDom(safe)
   try {
     localStorage.setItem(STORAGE_KEY, String(safe))
   } catch {
-    // ignore quota / privacy mode errors
+    // 隱私模式 / 配額爆掉，靜默失敗（畫面照樣套用）
   }
 })
 

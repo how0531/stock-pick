@@ -12,11 +12,12 @@
  */
 import { ref } from 'vue'
 
-const current = ref(null)
-let nextId = 0
-let timer = null
+const current = ref(null) // 目前顯示中的 toast，null 代表沒有
+let nextId = 0             // 每則訊息給唯一 id，方便 Vue Transition 觸發動畫
+let timer = null           // 自動消失的計時器
 
 export function showToast(message, type = 'success', duration = 2000) {
+  // 重點：新訊息會覆蓋舊的（清掉前一個 timer），避免兩則 toast 重疊或順序錯亂
   if (timer) clearTimeout(timer)
   current.value = { id: ++nextId, message, type }
   timer = setTimeout(() => {
