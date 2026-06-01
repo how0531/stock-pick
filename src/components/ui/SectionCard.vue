@@ -15,6 +15,7 @@
         @click="collapsed = !collapsed"
       >{{ collapsed ? '+' : '−' }}</button>
       <span class="title">{{ title }}</span>
+      <slot name="title-addon" />
       <span v-if="info" class="info">ⓘ</span>
       <span class="spacer"></span>
       <slot name="header-right" />

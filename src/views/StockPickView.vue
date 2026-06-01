@@ -42,16 +42,16 @@
         v-if="key === 'stockpick'"
         title="選股清單"
       >
+        <template #title-addon>
+          <div v-if="!editMode" class="mode-toggle">
+            <span class="mt" :class="{ active: mode === 'short' }" @click="mode = 'short'">短線</span>
+            <span class="mt" :class="{ active: mode === 'swing' }" @click="mode = 'swing'">波段</span>
+          </div>
+        </template>
         <template v-if="editMode" #header-right>
           <div class="order-ctrl">
             <button class="ord-btn" :disabled="idx === 0" @click="moveUp(idx)">↑</button>
             <button class="ord-btn" :disabled="idx === sectionOrder.length - 1" @click="moveDown(idx)">↓</button>
-          </div>
-        </template>
-        <template v-else #header-right>
-          <div class="mode-toggle">
-            <span class="mt" :class="{ active: mode === 'short' }" @click="mode = 'short'">短線</span>
-            <span class="mt" :class="{ active: mode === 'swing' }" @click="mode = 'swing'">波段</span>
           </div>
         </template>
         <CategoryTabs :categories="activeCategories" v-model:active="activeCat" @open-filter="filterVisible = true" />
@@ -293,16 +293,16 @@ function toggleWatch(stock) {
 .mode-toggle {
   display: inline-flex; background: var(--bg-3);
   border: 1px solid var(--line);
-  border-radius: 999px; padding: 3px;
+  border-radius: 999px; padding: 2px;
 }
 .mt {
-  font-size: calc(14px * var(--font-scale)); padding: 6px 18px; border-radius: 999px;
-  cursor: pointer; color: var(--text); font-weight: 600;
+  font-size: calc(12px * var(--font-scale)); padding: 4px 12px; border-radius: 999px;
+  cursor: pointer; color: var(--text-dim); font-weight: 600;
   transition: all .15s; letter-spacing: 0.5px;
 }
 .mt.active {
-  background: var(--accent); color: #1a1408; font-weight: 800;
-  box-shadow: 0 0 0 2px rgba(214,162,91,0.25), 0 2px 6px rgba(0,0,0,0.3);
+  background: var(--accent); color: #1a1408; font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(214,162,91,0.15), 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .follow-btn {
